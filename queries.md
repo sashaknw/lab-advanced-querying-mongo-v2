@@ -17,6 +17,7 @@
 <!-- Your Query Goes Here -->
 - **`limit`**: 20
 - **`query`**: {number_of_employees: {$gt: 5000}}  
+- **`sort`**: { number_of_employees: 1 }
 
 <br>
 
@@ -34,9 +35,8 @@
 
 <!-- Your Query Goes Here -->
 
-- **`query`**: founded_year: { $lt: 2010 },
-    "ipo.valuation_amount": { $gt: 100000000 }
-- **`projection`**:  { name: 1, _id: 0, ipo: 1 }
+- **`query`**: { "ipo.valuation_amount": { $gt: 100000000 }, founded_year: { $lt: 2010 } }
+- **`projection`**:  { _id: 0, name: 1, ipo: 1 }
 
 
 <br>
@@ -51,7 +51,7 @@
 **6. All the companies that have a null value on the `category_code` field.**
 
 
-- **`query`**:  { category_code: 'null' }
+- **`query`**:  { category_code: null }
 
 <br>
 
@@ -99,8 +99,8 @@
 <!-- Your Query Goes Here -->
 
 - **`query`**:   { "acquisition.acquired_year": { $gt: 2010 } }
-- **`projection`**:   { name: 1, _id: 0, acquisition: 1 }
-- **`sort`**:{"acquisition.price_amount": -1 }
+- **`projection`**: { name: 1, _id: 0, acquisition: 1 }
+- **`sort`**: { "acquisition.price_amount": -1 }
 
 
 <br>
@@ -129,7 +129,7 @@
 
 <!-- Your Query Goes Here -->
 
-- **`query`**: {$and: [{ "acquisition.price_amount": { $gt: 10000000 }, { "acquisition.currency_code": "EUR" }}]}
+- **`query`**: { $and: [ { "acquisition.price_amount": { $gt: 10000000 } }, { "acquisition.currency_code": "EUR" } ] }
 
 <br>
 
@@ -137,8 +137,7 @@
 
 <!-- Your Query Goes Here -->
 
-- **`query`**: {$and: [{ founded_year: { $gte: 2000, $lte: 2010 }, {
-    "acquisition.acquired_year": { $gt: 2010 }}}]}
+- **`query`**: { $and: [ { founded_year: { $gte: 2000, $lte: 2010 } }, { "acquisition.acquired_year": { $gt: 2010 } } ] }
 
 
 <br>
