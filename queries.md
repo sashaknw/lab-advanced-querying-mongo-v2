@@ -119,7 +119,7 @@
 
 <!-- Your Query Goes Here -->
 
-- **`query`**:  { category_code: "web", number_of_employees: { $gt: 4000 } },
+- **`query`**:  {$and: [{ category_code: "web"}, {number_of_employees: { $gt: 4000 } }]},
 - **`sort`**: { number_of_employees: 1 }
 
 
@@ -129,7 +129,7 @@
 
 <!-- Your Query Goes Here -->
 
-- **`query`**:  { "acquisition.price_amount": { $gt: 10000000 }, "acquisition.currency_code": "EUR" }
+- **`query`**: {$and: [{ "acquisition.price_amount": { $gt: 10000000 }, { "acquisition.currency_code": "EUR" }}]}
 
 <br>
 
@@ -137,8 +137,8 @@
 
 <!-- Your Query Goes Here -->
 
-- **`query`**: founded_year: { $gte: 2000, $lte: 2010 },
-    "acquisition.acquired_year": { $gt: 2010 }
+- **`query`**: {$and: [{ founded_year: { $gte: 2000, $lte: 2010 }, {
+    "acquisition.acquired_year": { $gt: 2010 }}}]}
 
 
 <br>
